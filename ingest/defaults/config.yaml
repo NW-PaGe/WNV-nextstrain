@@ -1,5 +1,14 @@
+# This configuration file should contain all required configuration parameters
+# for the ingest workflow to run to completion.
+#
+# Define optional config parameters with their default values here so that users
+# do not have to dig through the workflows to figure out the default values
+
 # Sources of sequences to include in the ingest run
 sources: ['genbank']
+
+# Required to fetch from NCBI Datasets
+ncbi_taxon_id: "11082"
 
 # Params for the curate rule
 curate:

@@ -14,22 +14,17 @@ Produces final output as
 """
 workflow.global_resources.setdefault("concurrent_deploys", 2)
 
-def download_serotype(wildcards):
-    serotype = {
-        'all': '11082',
-    }
-    return serotype[wildcards.serotype]
-
-
 rule fetch_ncbi_dataset_package:
     output:
         dataset_package = temp("data/ncbi_dataset.zip")
     retries: 5 # Requires snakemake 7.7.0 or later
     benchmark:
         "benchmarks/fetch_ncbi_dataset_package.txt"
+    params:
+        ncbi_taxon_id = config["ncbi_taxon_id"]
     shell:
         """
-        datasets download virus genome taxon 11082 \
+        datasets download virus genome taxon {params.ncbi_taxon_id:q} \
             --no-progressbar \
             --filename {output.dataset_package}
         """
