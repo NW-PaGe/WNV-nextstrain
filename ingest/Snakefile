@@ -3,7 +3,7 @@ workdir: workflow.current_basedir
 
 if not config:
 
-    configfile: "config/defaults.yaml"
+    configfile: "defaults/config.yaml"
 
 
 send_slack_notifications = config.get("send_slack_notifications", False)
