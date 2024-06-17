@@ -10,6 +10,28 @@ sources: ['genbank']
 # Required to fetch from NCBI Datasets
 ncbi_taxon_id: "11082"
 
+# The list of NCBI Datasets fields to include from NCBI Datasets output
+# These need to be the "mnemonics" of the NCBI Datasets fields, see docs for full list of fields
+# https://www.ncbi.nlm.nih.gov/datasets/docs/v2/reference-docs/command-line/dataformat/tsv/dataformat_tsv_virus-genome/#fields
+# Note: the "accession" field MUST be provided to match with the sequences
+ncbi_datasets_fields:
+  - accession
+  - sourcedb
+  - isolate-lineage
+  - geo-region
+  - geo-location
+  - isolate-collection-date
+  - release-date
+  - update-date
+  - length
+  - host-name
+  - isolate-lineage-source
+  - bioprojects
+  - biosample-acc
+  - sra-accs
+  - submitter-names
+  - submitter-affiliation
+
 # Params for the curate rule
 curate:
   # Fields to rename.
