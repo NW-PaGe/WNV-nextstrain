@@ -28,6 +28,7 @@ rule fetch_ncbi_dataset_package:
             --no-progressbar \
             --filename {output.dataset_package}
         """
+
 rule extract_ncbi_dataset_sequences:
     input:
         dataset_package = "data/ncbi_dataset.zip"
